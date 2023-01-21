@@ -10,14 +10,6 @@ Testimonials can be added via the main website. Lambda function is called to ins
 
 Blogs are uploaded by Joe through admin page. It is uploaded to S3 and the meta data is inserted to DynamoDB via Lambda through S3 Event Notification. Similar to Testimonial , a JSON file is generated containing the list of blogs and the GitHub workflow action for the repo https://github.com/cdgbabies/main-website-frontend  is also invoked via Lambda . This repo corresponds to main page website which is built using Astro.  Every blog comes as a new page in the website . Since Astro expects all routes must be determined at build time (using SSG and not SSR), a dynamic route must export a `getStaticPaths()` that returns an array of objects with a `params` property. Each of these objects will generate a corresponding route. Blogs are stored in S3 bucket which is accessible via Origin Access Control via CloudFront.
 
-The process followed is as follows:
-
-
-
-
-
-![](https://screenshotsshiksha.s3.amazonaws.com/Flow.svg)
-
 
 
 **Infrastructure Provisioning**
